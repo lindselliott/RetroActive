@@ -43,10 +43,3 @@ class ActionItem:
 			'completed': self.completed
 		}
 
-	# def actions_items_export(self, file):
-	# 	output = csv.writer(file)
-	# 	output.writerow(self[0].keys())  # header row
-
-	# 	# import pdb; pdb.set_trace()
-	# 	for row in data:
-	# 	    output.writerow(row.values())

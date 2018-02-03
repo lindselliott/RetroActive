@@ -3,7 +3,9 @@ import json
 import sys
 
 #add enum for emotions here 
-
+# 0 - happy 
+# 1 - meh 
+# 2 - sad 
 
 class Post: 
 
@@ -24,9 +26,9 @@ class Post:
 	def num_of_likes(self):
 		return self.num_of_likes
 
-	# def format_to_csv(self, file):
-	# 	output = csv.writer(file, delimiter=',')
-	# 	#output.writerow(self[0].keys())  # header row
-
-	# 	import pdb; pdb.set_trace()
-	# 	output.writerow(list(self))
+	def serialize(self):
+		return {
+			'text': self.text, 
+			'emotion': self.emotion,
+			'num_of_likes': self.num_of_likes
+		}

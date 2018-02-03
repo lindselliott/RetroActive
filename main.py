@@ -8,24 +8,27 @@ from datetime import datetime
 from post import Post 
 from actionItem import ActionItem
 import csv 
+import requests
 
 app = Flask(__name__)
 firebase = firebase.FirebaseApplication('https://retroactive-d25de.firebaseio.com')
 
-#export to csv 
+#*************************************************************************** export to csv
+
+@app.route('/export', methods=['GET'])
 def export_to_csv():
 	current_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 	file_name = 'exported/Test.csv'
 	with open(file_name, 'wb') as csv_file:
 		wr = csv.writer(csv_file, delimiter=',')
 		# action_items_csv = actions_items_export(test_file)
-		write_action_items_to_csv(wr)
+		_write_action_items_to_csv(wr)
 		wr.writerow([])
-		write_posts_to_csv(wr)
+		_write_posts_to_csv(wr)
+
 	
-
-
-def write_posts_to_csv(wr): 
+	
+def _write_posts_to_csv(wr): 
 	posts = json.loads(get_all_posts())
 
 	wr.writerow(['Posts'])
@@ -45,7 +48,7 @@ def write_posts_to_csv(wr):
 			post_obj.num_of_likes])
 
 
-def write_action_items_to_csv(wr): 
+def _write_action_items_to_csv(wr): 
 	action_items = json.loads(get_all_action_items())
 
 	wr.writerow(['Action Items'])
@@ -127,7 +130,7 @@ def complete_action_item(index):
 			task = action_item['task'],
 			completed = True)
 
-		action_item_ser = action_item_obj.serialize()
+		# action_item_ser = action_item_obj.serialize()
 		firebase.delete('/action_items', index)
 		firebase.put(
 			'action_items', 
@@ -162,7 +165,6 @@ def delete_specific_post(index):
 
 # ***************************************************************************** POSTS 
 
-
 @app.route('/posts', methods=['GET', 'POST'])
 def get_all_posts (): 
 	return json.dumps(firebase.get('/posts', None))
@@ -177,11 +179,15 @@ def get_posts_with_emotion (emotion):
 			specific_posts.append(post) 
 
 	return json.dumps(specific_posts)
-	 
-def add_post (text, emotion, num_of_likes = 0): 
+
+@app.route("/posts/add/<string:text>,<int:emotion>,<int:num_of_likes>", methods = ['GET', 'POST'])
+def add_post (text, emotion, num_of_likes):
 	posts = firebase.get('/posts', None)
 	firebase.put('posts', len(posts), {"text": text, "emotion": emotion, "num_of_likes": num_of_likes})
 
+	return json.dumps(firebase.get('/posts', None))
+
+@app.route("/posts/like/<int:index>", methods = ['GET', 'POST'])
 def add_like(index):
 	post = firebase.get('/posts/' + str(index), None)
 
@@ -189,16 +195,15 @@ def add_like(index):
 		post_obj = Post(
 			text = post['text'],
 			emotion = post['emotion'],
-			num_of_likes = post['num_of_likes'])
+			num_of_likes = post['num_of_likes'] + 1)
 
 		firebase.delete('/posts', index)
 		firebase.put(
 			'posts', 
-			index, 
-			{
-				"text": post.text, 
-				"emotion": post.emotion, 
-				"num_of_likes": post.num_of_likes + 1})
+			str(index), 
+			post_obj.serialize())
+
+	return json.dumps(firebase.get('/posts', None))
 
 def delete_all_posts():
 	return firebase.delete('/posts', None)
@@ -210,12 +215,12 @@ def delete_specific_post(index):
 
 
 # export_to_csv()
-# create_action_item(owner = 'lelliott', 
-# 				   assigned_to = 'lelliott', 
-# 				   start_date = '02/03/2018', 
-# 				   end_date = '02/04/2018', 
-# 				   task = "Do this action item", 
-# 				   completed = False)
+create_action_item(owner = 'lelliott', 
+				   assigned_to = 'lelliott', 
+				   start_date = '02/03/2018', 
+				   end_date = '02/04/2018', 
+				   task = "Do this action item", 
+				   completed = False)
 #complete_action_item(0)
 
 if __name__ == '__main__':
