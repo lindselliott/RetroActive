@@ -19,26 +19,27 @@
         // var num_of_likes = $(this).
 
 
+        var url = "http://localhost:5000/posts/add/"
+
+
         var itemDict = '{ "posts" : [' +
                        '{ "text":"TASKKKKK" , "emotion":"1", "num_of_likes":"1"},' +
                        '{ "text":"task2" , "emotion":"2", "num_of_likes":"20"}' +
                        ' ]}';
 
-        // var itemDict = {
-        //   itemDict["text"] = text;
-        //   itemDict["emotion"] = emotion;
-        //   itemDict["num_of_likes"] = num_of_likes;
-        // };
-        console.log(itemDict);
+      var itemPost = 'yoooo'+',1'+',300';
+
+        console.log(itemDict); 
 
       //  return itemDict
       
 
-      // $.post("demo_test.asp", function(data, status){
-      //   alert("Retro Saved");
-      // });
+      $.post(url+itemPost, function(data, status){
+        alert("Retro Saved");
+      });
     });
        });
+
 
     $("#happyButton").click(function(){
     $("#happy").append('<div class="card"><center><textarea type = "text", id="postitem"></textarea></center><right><button type="add_button", id="happy_plus_button"> + </button><div class="add_button_text", id="happy_plus_text">1</div></right></div>')
