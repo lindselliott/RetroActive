@@ -6,17 +6,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
     <script>
       $(document).ready(function(){
+    
+
     $("#happyButton").click(function(){
-    $("#happy").append('<div class="card"><center><input></input></center><center><button type="done_editing_button">Done!</button></center></div>')
+    $("#happy").append('<div class="card"><center><textarea type = "text"></textarea></center></div>')
     });
 
     $("#mehButton").click(function(){
-    $("#meh").append('<div class="card"><center><input></input></center><center><button type="done_editing_button">Done!</button></center></div>')
+    $("#meh").append('<div class="card"><center><textarea type = "text"></textarea></center></div>')
 
 });
     $("#sadButton").click(function(){
-    $("#sad").append('<div class="card"><center><input></input></center><center><button type="done_editing_button">Done!</button></center></div>')
+    $("#sad").append('<div class="card"><center><textarea type = "text"></textarea></center></div>')
 });
+
+
+     $("#happy_done_button").click(function(){
+      alert('AJDKFASJDFGAHSDFASDF');
+      var cardText = document.getElementById("happy_textarea").value;
+      $("#happy").append('<div class="card"><p> TEATASETA</p> </div>')
+    });
+
 });
        </script>   
    <style>
@@ -43,7 +53,6 @@
      .card {
      position: relative;
      top: 50px;
-     
      float: left;
      left: 30px;
      background: white;
@@ -52,7 +61,7 @@
      width: 375px;
      padding: 0 2px;
      padding-right: 5px;
-     margin: 0.1em;
+     margin: 0.2em;
      }
 
      .add_button {
@@ -111,14 +120,22 @@
      text-align: center;
      }
 
-     input [type=text] {
+     textarea {
+      resize: none;
       background-color: white;
-      width: 375px;
+      width: 370px;
+      font-size: 24px;
+      text-align: center;
+      word-wrap: break-word;
+
      }
 
-     input:focus {
-      height: 200px;
-      width: 375px;
+     textarea:focus {
+      
+      width: 370px;
+      font-size: 24px;
+       text-align: center;
+       word-wrap: break-word;
      }
 
      img {
