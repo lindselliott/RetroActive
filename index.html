@@ -11,11 +11,11 @@
     });
 
     $("#mehButton").click(function(){
-    $("#meh").prepend('<div class= "card"><input></input></div>')
+    $("#meh").append('<div class= "card"><input></input></div>')
 
 });
     $("#sadButton").click(function(){
-    $("#sad").prepend('<div class= "card"><input></input></div>')
+    $("#sad").append('<div class= "card"><input></input></div>')
 });
 });
        </script>   
@@ -57,7 +57,7 @@
 
      .add_button {
      position: relative;
-     top: 50px;
+     top: 35px;
      
      float: left;
      left: 30px;
@@ -94,6 +94,11 @@
       width: 260px;
      }
 
+     .subheading {
+      color: white;
+      font-size: 20px;
+     }
+
      .comment {
      font-size: 17px;
      text-align: center;
@@ -126,6 +131,8 @@
   </div>
   <div class = "column", id="happy">
   <center><img src = "happy.png"/></center>
+  <center><p class = "subheading"> What were some things that went <b> great </b> this week? </p></center>
+
   <button class="add_button", id = "happyButton"> + </button>
 <!--   <div class = "card"> 
       <p class = "comment"> An iOS app developed in Swift to track finances and set spending limits. <br> <br>
@@ -174,6 +181,7 @@
 
  <div class = "column", id="meh">
   <center><img src = "meh.png"/></center>
+    <center><p class = "subheading"> What were some things that were just <b> ok </b> this week? </p></center>
   <button class="add_button", id = "mehButton"> + </button>
        </div>
 
@@ -184,6 +192,7 @@
 
   <div class = "column", id="sad">
     <center><img src = "sad.png"/></center>
+      <center><p class = "subheading"> What were some things that were <b> shitty </b> this week? </p></center>
     <button class="add_button", id = "sadButton"> + </button>
 
       </div>
