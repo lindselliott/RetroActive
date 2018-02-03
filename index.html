@@ -2,30 +2,68 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css"
-          href= "https://fonts.googleapis.com/css?family=Advent+Pro:100" rel="stylesheet">
+          href= "https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
     <script>
       $(document).ready(function(){
-    
+
+
+    $("#save").click(function(){
+      // save retro
+
+      $("#postitem").each(function(){
+        // var value = $(this).value();
+        // var emotion = 1;
+        // var num_of_likes = 2;
+        // var emotion = $(this)
+        // var num_of_likes = $(this).
+
+
+        var itemDict = '{ "posts" : [' +
+                       '{ "text":"TASKKKKK" , "emotion":"1", "num_of_likes":"1"},' +
+                       '{ "text":"task2" , "emotion":"2", "num_of_likes":"20"}' +
+                       ' ]}';
+
+        // var itemDict = {
+        //   itemDict["text"] = text;
+        //   itemDict["emotion"] = emotion;
+        //   itemDict["num_of_likes"] = num_of_likes;
+        // };
+        console.log(itemDict);
+
+      //  return itemDict
+      
+
+      // $.post("demo_test.asp", function(data, status){
+      //   alert("Retro Saved");
+      // });
+    });
+       });
 
     $("#happyButton").click(function(){
-    $("#happy").append('<div class="card"><center><textarea type = "text"></textarea></center><right><button type="add_button", id="happy_plus_button">+1</right></div>')
+    $("#happy").append('<div class="card"><center><textarea type = "text", id="postitem"></textarea></center><right><button type="add_button", id="happy_plus_button"> + </button><div class="add_button_text", id="happy_plus_text">1</div></right></div>')
     });
 
     $("#mehButton").click(function(){
-    $("#meh").append('<div class="card"><center><textarea type = "text"></textarea></center><right><button type="add_button", id="meh_plus_button">+1</right></div>')
+    $("#meh").append('<div class="card"><center><textarea type = "text", id="postitem"></textarea></center><right><button type="add_button", id="meh_plus_button"> + </button><h5>1</h5></right></div>')
     });
 
     $("#sadButton").click(function(){
-    $("#sad").append('<div class="card"><center><textarea type = "text"></textarea></center><right><button type="add_button", id="sad_plus_button">+1</right></div>')
+    $("#sad").append('<div class="card"><center><textarea type = "text", id="postitem"></textarea></center><right><button type="add_button", id="sad_plus_button"> + </button><h5>1</h5></right></div>')
     });
 
     $("#actionItemButton").click(function(){
-    $("#action_items").append('<div class="card"><center><textarea type = "text"></textarea></center><center><input placeholder="Enter Slack name"></input></center></div>')
+    $("#action_items").append('<div class="card"><center><textarea type = "text", id="actionitem"></textarea></center><center><input placeholder="Enter Slack name"></input></center></div>')
     });
 
     $("#happy").on('click', '#happy_plus_button', function(){
-      // $("#happy_plus_button").prop('value', 'yo');
+      var text =  document.getElementById("happy_plus_text");
+      var textVal = textVal.innerHTML;
+      // if textVal == 1 {
+      //   textVal.innerHTML = 1;
+      // } else {
+        textVal.innerHTML = textVal+1;
+  //    }
     });
 
     $("#meh").on('click', '#meh_plus_button', function(){
@@ -41,7 +79,8 @@
    <style>
     body {
       background-color: #FFFFFF;
-      font-family: 'Advent Pro', sans-serif;
+      font-family: "Ubuntu";
+      font-weight: lighter;
       color: #848377;
     }
 
@@ -62,9 +101,7 @@
     text-decoration: none;
     font-size: 50px;
     font-weight: bold;
-/*    color: #FFFFFF;*/
 }
-
      .column {
       position: relative;
       padding-top: 150px;
@@ -103,21 +140,6 @@
      margin: 0.2em;
      }
 
-     .add_button {
-     position: relative;
-     top: 35px;
-     float: left;
-     left: 27.5px;
-     right: 27.5px;
-     background: white;
-     border-radius: 6px;
-     box-shadow: 0 0.5px 2.5px rgba(0, 0, 0, 0.25);
-     width: 375px;
-     margin: 0.1em;
-     font-size: 50px;
-     color: gray;
-     }
-
      .title {
      text-indent: 70px;
      font-size: 80px;
@@ -148,9 +170,26 @@
      text-align: center;
      }
 
+     .add_button {
+    font-size: 40px;
+    opacity: 0.3;
+    color: #ffffff;
+    width: 48px;
+    height: 48px;
+    line-height: 40px;
+   background-color: #188bde;
+   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+   border-radius: 75%;
+  text-align: center;
+}
+
+.add_button_text {
+  font-size: 18px;
+  text-align: center;
+}
+
      textarea {
       resize: none;
-  /*    overflow: auto;*/
       background-color: white;
       border-width: 0px;
       width: 370px;
@@ -180,6 +219,7 @@
   <body>
     <ul>
       <li>RetroActive</li>
+      <li><button id="save">Save Retro</button></li>
     </ul>
   
 
@@ -191,7 +231,7 @@
   <center><img src = "happy.png"/></
   <center><p class = "subheading"> What were some things that went <b> great </b> this week? </p></center>
 
-  <button class="add_button", id = "happyButton"> + </button>
+  <center><button class="add_button", id = "happyButton"> + </button></center>
                                     
       </div>
 
@@ -202,7 +242,7 @@
  <div class = "column", id="meh">
   <center><img src = "meh.png"/></center>
     <center><p class = "subheading"> What were some things that were just <b> ok </b> this week? </p></center>
-  <button class="add_button", id = "mehButton"> + </button>
+ <center><button class="add_button", id = "mehButton"> + </button></center> 
        </div>
 
       <div class = "divider">
@@ -213,7 +253,7 @@
   <div class = "column", id="sad">
     <center><img src = "sad.png"/></center>
       <center><p class = "subheading"> What were some things that were <b> shitty </b> this week? </p></center>
-    <button class="add_button", id = "sadButton"> + </button>
+    <center><button class="add_button", id = "sadButton"> + </button></center>
 
       </div>
 
@@ -224,7 +264,7 @@
 <div class = "column", id="action_items">
   <center><img src = "action.png"/></center>
     <center><p class="subheading"><b>Action Items</b></p></center>
-    <button class="add_button", id="actionItemButton"> + </button>
+    <center><button class="add_button", id="actionItemButton"> + </button></center>
   </div>
 
 
