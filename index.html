@@ -6,67 +6,113 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
     <script>
       $(document).ready(function(){
+    
+
     $("#happyButton").click(function(){
-    $("#happy").append('<div class= "card"><input></input></div>')
+    $("#happy").append('<div class="card"><center><textarea type = "text"></textarea></center><right><button type="add_button", id="happy_plus_button">+1</right></div>')
     });
 
     $("#mehButton").click(function(){
-    $("#meh").prepend('<div class= "card"><input></input></div>')
+    $("#meh").append('<div class="card"><center><textarea type = "text"></textarea></center><right><button type="add_button", id="meh_plus_button">+1</right></div>')
+    });
 
-});
     $("#sadButton").click(function(){
-    $("#sad").prepend('<div class= "card"><input></input></div>')
-});
+    $("#sad").append('<div class="card"><center><textarea type = "text"></textarea></center><right><button type="add_button", id="sad_plus_button">+1</right></div>')
+    });
+
+    $("#actionItemButton").click(function(){
+    $("#action_items").append('<div class="card"><center><textarea type = "text"></textarea></center><center><input placeholder="Enter Slack name"></input></center></div>')
+    });
+
+    $("#happy").on('click', '#happy_plus_button', function(){
+      // $("#happy_plus_button").prop('value', 'yo');
+    });
+
+    $("#meh").on('click', '#meh_plus_button', function(){
+      alert("mehhhththth");
+    });
+
+    $("#sad").on('click', '#sad_plus_button', function(){
+      alert("fuck this");
+    });
+
 });
        </script>   
    <style>
     body {
-      background-color: #EEEFE9;
+      background-color: #FFFFFF;
       font-family: 'Advent Pro', sans-serif;
-      background-color: #0084B4;
+      color: #848377;
     }
-/*    .home {
-        position: fixed;
-        top: 0px;
-        right: 10px;
-        font-size: 25px;
-    }*/
+
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #518aef;
+}
+
+   li {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 50px;
+    font-weight: bold;
+/*    color: #FFFFFF;*/
+}
 
      .column {
       position: relative;
-/*      background-color: green;*/
-      top: 150px;
+      padding-top: 150px;
+      padding-bottom: 100px;
       float: left;
       width: 430px;
+     }
+
+     #happy {
+      background-color: #d0e5f8;
+     }
+
+     #meh {
+      background-color: #fdfad3;
+     }
+
+     #sad {
+      background-color: #eed6d5;
+     }
+
+     #action_items {
+      background-color: #dceed5;
      }
 
      .card {
      position: relative;
      top: 50px;
-     
      float: left;
-     left: 30px;
+     left: 27.5px;
+     right: 27.5px;
+     padding: 5px;
      background: white;
      border-radius: 6px;
      box-shadow: 0 0.5px 2.5px rgba(0, 0, 0, 0.25);
      width: 375px;
-     padding: 0 2px;
-     padding-right: 5px;
-     margin: 0.1em;
+     margin: 0.2em;
      }
 
      .add_button {
      position: relative;
-     top: 50px;
-     
+     top: 35px;
      float: left;
-     left: 30px;
+     left: 27.5px;
+     right: 27.5px;
      background: white;
      border-radius: 6px;
      box-shadow: 0 0.5px 2.5px rgba(0, 0, 0, 0.25);
      width: 375px;
-     padding: 0 2px;
-     padding-right: 5px;
      margin: 0.1em;
      font-size: 50px;
      color: gray;
@@ -77,7 +123,6 @@
      font-size: 80px;
      top: -40px;
      position: absolute;
-     color: white;
      }
 
      .divider {
@@ -94,17 +139,33 @@
       width: 260px;
      }
 
+     .subheading {
+      font-size: 20px;
+     }  
+
      .comment {
      font-size: 17px;
      text-align: center;
      }
 
-     input [type=text] {
+     textarea {
+      resize: none;
+  /*    overflow: auto;*/
       background-color: white;
+      border-width: 0px;
+      width: 370px;
+      font-size: 18px;
+      text-align: center;
+      word-wrap: break-word;
+      color: #848377;
+
      }
 
-     input:focus {
-      height: 200px;
+    input {
+      background-color: white;
+      width: 370px;
+      font-size: 18px;
+      text-align: center;
      }
 
      img {
@@ -117,7 +178,9 @@
 <title> RetroActive </title>
 </head>
   <body>
-  <p class = "title">  RetroActive </p>
+    <ul>
+      <li>RetroActive</li>
+    </ul>
   
 
   <div class = "left_margin", width = 200px >
@@ -125,46 +188,10 @@
 
   </div>
   <div class = "column", id="happy">
-  <center><img src = "happy.png"/></center>
+  <center><img src = "happy.png"/></
+  <center><p class = "subheading"> What were some things that went <b> great </b> this week? </p></center>
+
   <button class="add_button", id = "happyButton"> + </button>
-<!--   <div class = "card"> 
-      <p class = "comment"> An iOS app developed in Swift to track finances and set spending limits. <br> <br>
-
-                                    Independent Project || January 2018. <br><br>
-
-                                    <u> Coming Soon! </u>
-
-                                    </p>
-
-                                    </div>    
-
-
-      <div class = "card"> 
-      <p class = "comment"> A Google Home skill made with Node .js and Python to query individual player
-                                    fantasy hockey performance. <br> <br>
-
-                                    Independent Project || December 2017. <br><br>
-
-                                    <a href = "https://github.com/s3wasser/FantasyChat" target = "_blank", > <u> View on GitHub </u>  </a>
-
-                                    </p>
-                                     <center><button type="button"> <3 </button></center>
-
-                                    </div>    
-
-
-
-    <div class = "card"> 
-      <p class = "comment"> Made with HTML/CSS code and my own photographs to show my projects and 
-                                    share contact information. <br> <br>
-
-                                    Independent Project || February 2017. <br><br>
-
-                                    <a href = "https://github.com/s3wasser/s3wasser.github.io" target = "_blank", > <u> View on GitHub </u>  </a>
-
-                                    </p>
-
-                                    </div> -->
                                     
       </div>
 
@@ -174,6 +201,7 @@
 
  <div class = "column", id="meh">
   <center><img src = "meh.png"/></center>
+    <center><p class = "subheading"> What were some things that were just <b> ok </b> this week? </p></center>
   <button class="add_button", id = "mehButton"> + </button>
        </div>
 
@@ -184,9 +212,21 @@
 
   <div class = "column", id="sad">
     <center><img src = "sad.png"/></center>
+      <center><p class = "subheading"> What were some things that were <b> shitty </b> this week? </p></center>
     <button class="add_button", id = "sadButton"> + </button>
 
       </div>
+
+<div class = "divider">
+        <p> </p>
+      </div> 
+
+<div class = "column", id="action_items">
+  <center><img src = "action.png"/></center>
+    <center><p class="subheading"><b>Action Items</b></p></center>
+    <button class="add_button", id="actionItemButton"> + </button>
+  </div>
+
 
 </body>
 </html>
