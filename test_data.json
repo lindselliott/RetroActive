@@ -1,0 +1,14 @@
+{
+	"posts": [
+		{
+			"text": "This is a test." ,
+			"emotion": 1,
+			"num_of_likes" : 6
+		},
+		{
+			"text": "This is another test." ,
+			"emotion": 2,
+			"num_of_likes" : 6
+		}
+	]
+}
