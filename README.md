@@ -1,5 +1,4 @@
 # RetroActive
-
 Created by The Best Hackathon team:
 
 Chloe Hogan 
@@ -16,3 +15,4 @@ Endpoints:
 /action_items_by/<string:name> - gets all action items created an individual
 /posts - gets all posts
 /posts/<int:emotion> - gets all posts of a specific emotion
+
