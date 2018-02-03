@@ -1,21 +1,61 @@
 {
 	"posts": [
 		{
-			"text": "This is a test." ,
-			"emotion": 1,
-			"num_of_likes" : 6
+			"text": "I think it was cool that we met all our objectives this week" ,
+			"emotion": 0,
+			"num_of_likes" : 2
 		},
 		{
-			"text": "This is another test." ,
+			"text": "I liked that our PM was super cool" ,
+			"emotion": 0,
+			"num_of_likes" : 0
+		},
+		{
+			"text": "Actually,let me tell you something...our designer...Jason? Yeah him...he's super awesome!" ,
+			"emotion": 0,
+			"num_of_likes" : 13
+		},
+		{
+			"text": "I think it was cool that we met all our objectives this week" ,
+			"emotion": 0,
+			"num_of_likes" : 2
+		},
+		{
+			"text": "That time the dev threw a tantrum" ,
+			"emotion": 1,
+			"num_of_likes" : 0
+		},
+		{
+			"text": "I think it was cool that we met all our objectives this week" ,
+			"emotion": 1,
+			"num_of_likes" : 0
+		},
+		{
+			"text": "I think the copy is ...ok" ,
+			"emotion": 1,
+			"num_of_likes" : 0
+		},
+		{
+			"text": "I don't like that the client made me pay for my uber...wtf" ,
 			"emotion": 2,
-			"num_of_likes" : 6
+			"num_of_likes" : 2
+		},
+		{
+			"text": "My legs hurt" ,
+			"emotion": 2,
+			"num_of_likes" : 0
+		},
+		{
+			"text": "When I showed up at the client's office, they asked me who I was and when I told them they didn't believe me and kicked me out of the building...:(" ,
+			"emotion": 2,
+			"num_of_likes" : 13
 		}
 	],
 	"action_items": [
 		{
 			"owner": "Bob" ,
 			"assigned_to": "John",
-			"task": "Finish the backend",
+			"task": "Update the tracker",
 			"start_date": "02/03/2018",
 			"end_date": "02/04/2018",
 			"completed": false
@@ -27,6 +67,14 @@
 			"start_date": "02/03/2018",
 			"end_date": "02/10/2018",
 			"completed": true
-		}
+		},
+		{
+			"owner": "Bob" ,
+			"assigned_to": "John",
+			"task": "Talk to the client",
+			"start_date": "02/03/2018",
+			"end_date": "02/04/2018",
+			"completed": false
+		},
 	]
 }
