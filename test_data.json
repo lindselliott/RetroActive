@@ -10,5 +10,23 @@
 			"emotion": 2,
 			"num_of_likes" : 6
 		}
+	],
+	"action_items": [
+		{
+			"owner": "Bob" ,
+			"assigned_to": "John",
+			"task": "Finish the backend",
+			"start_date": "02/03/2018",
+			"end_date": "02/04/2018",
+			"completed": false
+		},
+		{
+			"owner": "Jane" ,
+			"assigned_to": "Joe",
+			"task": "Finish the frontend",
+			"start_date": "02/03/2018",
+			"end_date": "02/10/2018",
+			"completed": true
+		}
 	]
 }
