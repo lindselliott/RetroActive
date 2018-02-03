@@ -9,22 +9,27 @@
     
 
     $("#happyButton").click(function(){
-    $("#happy").append('<div class="card"><center><textarea type = "text"></textarea></center></div>')
+    $("#happy").append('<div class="card"><center><textarea type = "text"></textarea></center><right><button type="add_button", id="happy_plus_button">+1</right></div>')
     });
 
     $("#mehButton").click(function(){
-    $("#meh").append('<div class="card"><center><textarea type = "text"></textarea></center></div>')
+    $("#meh").append('<div class="card"><center><textarea type = "text"></textarea></center><right><button type="add_button", id="meh_plus_button">+1</right></div>')
 
 });
     $("#sadButton").click(function(){
-    $("#sad").append('<div class="card"><center><textarea type = "text"></textarea></center></div>')
+    $("#sad").append('<div class="card"><center><textarea type = "text"></textarea></center><right><button type="add_button", id="sad_plus_button">+1</right></div>')
 });
 
+    $("#happy").on('click', '#happy_plus_button', function(){
+      $("#happy_plus_button").prop('value', 'yo');
+    });
 
-     $("#happy_done_button").click(function(){
-      alert('AJDKFASJDFGAHSDFASDF');
-      var cardText = document.getElementById("happy_textarea").value;
-      $("#happy").append('<div class="card"><p> TEATASETA</p> </div>')
+    $("#meh").on('click', '#meh_plus_button', function(){
+      alert("mehhhththth");
+    });
+
+    $("#sad").on('click', '#sad_plus_button', function(){
+      alert("fuck this");
     });
 
 });
@@ -81,13 +86,13 @@
      color: gray;
      }
 
-     .done_editing_button {
+/*     .done_editing_button {
       width: 300px;
       height: 200px;
       font-size: 17px;
       background-color: #4CAF50; /* Green */
      }
-
+*/
      .title {
      text-indent: 70px;
      font-size: 80px;
@@ -122,6 +127,7 @@
 
      textarea {
       resize: none;
+  /*    overflow: auto;*/
       background-color: white;
       width: 370px;
       font-size: 24px;
@@ -156,7 +162,7 @@
 
   </div>
   <div class = "column", id="happy">
-  <center><img src = "happy.png"/></center>
+  <center><img src = "happy.png"/></
   <center><p class = "subheading"> What were some things that went <b> great </b> this week? </p></center>
 
   <button class="add_button", id = "happyButton"> + </button>
@@ -184,6 +190,17 @@
     <button class="add_button", id = "sadButton"> + </button>
 
       </div>
+
+<div class = "divider">
+        <p> </p>
+      </div> 
+
+<!-- <div class = "column", id="sad">
+    <center><img src = "sad.png"/></center>
+      <center><p class = "subheading"> What were some things that were <b> shitty </b> this week? </p></center>
+    <button class="add_button", id = "sadButton"> + </button>
+  </div> -->
+
 
 </body>
 </html>
