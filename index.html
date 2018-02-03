@@ -21,7 +21,7 @@
     });
 
     $("#actionItemButton").click(function(){
-    $("#action_items").append('<div class="card"><center><textarea type = "text"></textarea></center><center><input placeholder="Assign Action Item"></input></center></div>')
+    $("#action_items").append('<div class="card"><center><textarea type = "text"></textarea></center><center><input placeholder="Enter Slack name"></input></center></div>')
     });
 
     $("#happy").on('click', '#happy_plus_button', function(){
@@ -140,7 +140,6 @@
      }
 
      .subheading {
-      color: white;
       font-size: 20px;
      }  
 
@@ -158,12 +157,12 @@
       font-size: 18px;
       text-align: center;
       word-wrap: break-word;
+      color: #848377;
 
      }
 
     input {
       background-color: white;
-
       width: 370px;
       font-size: 18px;
       text-align: center;
@@ -224,8 +223,8 @@
 
 <div class = "column", id="action_items">
   <center><img src = "action.png"/></center>
-    <center><p class="subheading">Action Items</p></center>
-    <button class="add_button", id = "actionItemButton"> + </button>
+    <center><p class="subheading"><b>Action Items</b></p></center>
+    <button class="add_button", id="actionItemButton"> + </button>
   </div>
 
 
