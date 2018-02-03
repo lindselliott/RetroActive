@@ -7,15 +7,15 @@
     <script>
       $(document).ready(function(){
     $("#happyButton").click(function(){
-    $("#happy").append('<div class= "card"><input></input></div>')
+    $("#happy").append('<div class="card"><center><input></input></center><center><button type="done_editing_button">Done!</button></center></div>')
     });
 
     $("#mehButton").click(function(){
-    $("#meh").append('<div class= "card"><input></input></div>')
+    $("#meh").append('<div class="card"><center><input></input></center><center><button type="done_editing_button">Done!</button></center></div>')
 
 });
     $("#sadButton").click(function(){
-    $("#sad").append('<div class= "card"><input></input></div>')
+    $("#sad").append('<div class="card"><center><input></input></center><center><button type="done_editing_button">Done!</button></center></div>')
 });
 });
        </script>   
@@ -72,6 +72,13 @@
      color: gray;
      }
 
+     .done_editing_button {
+      width: 300px;
+      height: 200px;
+      font-size: 17px;
+      background-color: #4CAF50; /* Green */
+     }
+
      .title {
      text-indent: 70px;
      font-size: 80px;
@@ -106,10 +113,12 @@
 
      input [type=text] {
       background-color: white;
+      width: 375px;
      }
 
      input:focus {
       height: 200px;
+      width: 375px;
      }
 
      img {
@@ -134,44 +143,6 @@
   <center><p class = "subheading"> What were some things that went <b> great </b> this week? </p></center>
 
   <button class="add_button", id = "happyButton"> + </button>
-<!--   <div class = "card"> 
-      <p class = "comment"> An iOS app developed in Swift to track finances and set spending limits. <br> <br>
-
-                                    Independent Project || January 2018. <br><br>
-
-                                    <u> Coming Soon! </u>
-
-                                    </p>
-
-                                    </div>    
-
-
-      <div class = "card"> 
-      <p class = "comment"> A Google Home skill made with Node .js and Python to query individual player
-                                    fantasy hockey performance. <br> <br>
-
-                                    Independent Project || December 2017. <br><br>
-
-                                    <a href = "https://github.com/s3wasser/FantasyChat" target = "_blank", > <u> View on GitHub </u>  </a>
-
-                                    </p>
-                                     <center><button type="button"> <3 </button></center>
-
-                                    </div>    
-
-
-
-    <div class = "card"> 
-      <p class = "comment"> Made with HTML/CSS code and my own photographs to show my projects and 
-                                    share contact information. <br> <br>
-
-                                    Independent Project || February 2017. <br><br>
-
-                                    <a href = "https://github.com/s3wasser/s3wasser.github.io" target = "_blank", > <u> View on GitHub </u>  </a>
-
-                                    </p>
-
-                                    </div> -->
                                     
       </div>
 
