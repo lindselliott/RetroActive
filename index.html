@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css"
+          href= "https://fonts.googleapis.com/css?family=Advent+Pro:100" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+    <script>
+      $(document).ready(function(){
+    $("#happyButton").click(function(){
+    $("#happy").append('<div class= "card"><input></input></div>')
+    });
+
+    $("#mehButton").click(function(){
+    $("#meh").prepend('<div class= "card"><input></input></div>')
+
+});
+    $("#sadButton").click(function(){
+    $("#sad").prepend('<div class= "card"><input></input></div>')
+});
+});
+       </script>   
+   <style>
+    body {
+      background-color: #EEEFE9;
+      font-family: 'Advent Pro', sans-serif;
+      background-color: #0084B4;
+    }
+/*    .home {
+        position: fixed;
+        top: 0px;
+        right: 10px;
+        font-size: 25px;
+    }*/
+
+     .column {
+      position: relative;
+/*      background-color: green;*/
+      top: 150px;
+      float: left;
+      width: 430px;
+     }
+
+     .card {
+     position: relative;
+     top: 50px;
+     
+     float: left;
+     left: 30px;
+     background: white;
+     border-radius: 6px;
+     box-shadow: 0 0.5px 2.5px rgba(0, 0, 0, 0.25);
+     width: 375px;
+     padding: 0 2px;
+     padding-right: 5px;
+     margin: 0.1em;
+     }
+
+     .add_button {
+     position: relative;
+     top: 50px;
+     
+     float: left;
+     left: 30px;
+     background: white;
+     border-radius: 6px;
+     box-shadow: 0 0.5px 2.5px rgba(0, 0, 0, 0.25);
+     width: 375px;
+     padding: 0 2px;
+     padding-right: 5px;
+     margin: 0.1em;
+     font-size: 50px;
+     color: gray;
+     }
+
+     .title {
+     text-indent: 70px;
+     font-size: 80px;
+     top: -40px;
+     position: absolute;
+     color: white;
+     }
+
+     .divider {
+      position: relative;
+      top: 150px;
+      float: left;
+      width: 100px;
+     }
+
+     .left_margin {
+      position: relative;
+      top: 150px;
+      float: left;
+      width: 260px;
+     }
+
+     .comment {
+     font-size: 17px;
+     text-align: center;
+     }
+
+     input [type=text] {
+      background-color: white;
+     }
+
+     input:focus {
+      height: 200px;
+     }
+
+     img {
+      width: 100px;
+      height: 100px;
+      align-content: center;
+     }
+
+  </style>
+<title> RetroActive </title>
+</head>
+  <body>
+  <p class = "title">  RetroActive </p>
+  
+
+  <div class = "left_margin", width = 200px >
+    <p> </p>
+
+  </div>
+  <div class = "column", id="happy">
+  <center><img src = "happy.png"/></center>
+  <button class="add_button", id = "happyButton"> + </button>
+<!--   <div class = "card"> 
+      <p class = "comment"> An iOS app developed in Swift to track finances and set spending limits. <br> <br>
+
+                                    Independent Project || January 2018. <br><br>
+
+                                    <u> Coming Soon! </u>
+
+                                    </p>
+
+                                    </div>    
+
+
+      <div class = "card"> 
+      <p class = "comment"> A Google Home skill made with Node .js and Python to query individual player
+                                    fantasy hockey performance. <br> <br>
+
+                                    Independent Project || December 2017. <br><br>
+
+                                    <a href = "https://github.com/s3wasser/FantasyChat" target = "_blank", > <u> View on GitHub </u>  </a>
+
+                                    </p>
+                                     <center><button type="button"> <3 </button></center>
+
+                                    </div>    
+
+
+
+    <div class = "card"> 
+      <p class = "comment"> Made with HTML/CSS code and my own photographs to show my projects and 
+                                    share contact information. <br> <br>
+
+                                    Independent Project || February 2017. <br><br>
+
+                                    <a href = "https://github.com/s3wasser/s3wasser.github.io" target = "_blank", > <u> View on GitHub </u>  </a>
+
+                                    </p>
+
+                                    </div> -->
+                                    
+      </div>
+
+      <div class = "divider">
+        <p> </p>
+      </div>  
+
+ <div class = "column", id="meh">
+  <center><img src = "meh.png"/></center>
+  <button class="add_button", id = "mehButton"> + </button>
+       </div>
+
+      <div class = "divider">
+        <p> </p>
+      </div> 
+ 
+
+  <div class = "column", id="sad">
+    <center><img src = "sad.png"/></center>
+    <button class="add_button", id = "sadButton"> + </button>
+
+      </div>
+
+</body>
+</html>
