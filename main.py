@@ -26,8 +26,6 @@ def export_to_csv():
 		wr.writerow([])
 		_write_posts_to_csv(wr)
 
-	
-	
 def _write_posts_to_csv(wr): 
 	posts = json.loads(get_all_posts())
 
@@ -119,6 +117,7 @@ def get_action_items_by_owner(name):
 
 	return json.dumps(found_actions)
 
+@app.route('/action_items/complete/<int:index>', methods=['GET'])
 def complete_action_item(index):
 	action_item = firebase.get('/action_items/' + str(index), None)
 	if action_item:
@@ -130,13 +129,15 @@ def complete_action_item(index):
 			task = action_item['task'],
 			completed = True)
 
-		# action_item_ser = action_item_obj.serialize()
 		firebase.delete('/action_items', index)
 		firebase.put(
 			'action_items', 
 			str(index), 
 			action_item_obj.serialize())
 
+	return json.dumps(firebase.get('/action_items', None))
+
+@app.route("/action_items/add/<owner>,<assigned_to>,<start_date>,<end_date>,<task>,<int:completed>", methods = ['GET', 'POST'])
 def create_action_item(owner, assigned_to, start_date, end_date, task, completed):
 	action_items = firebase.get('/action_items', None)
 
@@ -157,9 +158,13 @@ def create_action_item(owner, assigned_to, start_date, end_date, task, completed
 		str(length), 
 		action_item.serialize())
 
+	return json.dumps(firebase.get('/action_items', None))
+
+#@app.route('/action_items/delete', methods=['GET'])
 def delete_all_action_items():
 	return firebase.delete('/action_items', None)
 
+#@app.route('/action_items/delete/<int:index>', methods=['GET'])
 def delete_specific_post(index):
 	return firebase.delete('/action_items', index)	
 
@@ -205,23 +210,14 @@ def add_like(index):
 
 	return json.dumps(firebase.get('/posts', None))
 
+#@app.route('/posts/delete', methods=['GET', 'POST'])
 def delete_all_posts():
 	return firebase.delete('/posts', None)
 
-def delete_specific_post(index):
+#def delete_specific_post(index):
 	return firebase.delete('/posts', index)
 
-
-
-
-# export_to_csv()
-create_action_item(owner = 'lelliott', 
-				   assigned_to = 'lelliott', 
-				   start_date = '02/03/2018', 
-				   end_date = '02/04/2018', 
-				   task = "Do this action item", 
-				   completed = False)
-#complete_action_item(0)
+#***************************************************************************** main 
 
 if __name__ == '__main__':
 	app.run(debug=True)
